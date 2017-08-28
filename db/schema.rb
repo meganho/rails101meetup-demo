@@ -45,4 +45,11 @@ ActiveRecord::Schema.define(version: 20170828133800) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  class AddPostIdToComments < ActiveRecord::Migration
+    def change
+      add_column :comments, :post_id, :integer
+      add_index  :comments, :post_id
+    end
+  end
+
 end
